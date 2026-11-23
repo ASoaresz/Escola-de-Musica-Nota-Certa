@@ -1,7 +1,10 @@
+
 package com.escola_musica.nota_certa.api.dto.request;
 
 import com.escola_musica.nota_certa.entity.Instrumento;
+import com.escola_musica.nota_certa.api.validation.AtualizarCurso;
 import jakarta.validation.constraints.*;
+import jakarta.validation.groups.Default;
 
 import java.math.BigDecimal;
 
@@ -23,7 +26,10 @@ public record CursoRequestDTO(
         @Digits(integer = 8, fraction = 2, message = "O preço deve ter até 2 casas decimais")
         BigDecimal precoPadrao,
 
+        @NotNull(
+                message = "O campo ativo é obrigatório na atualização",
+                groups = AtualizarCurso.class
+        )
         Boolean ativo
 
-) {
-}
+) {}
