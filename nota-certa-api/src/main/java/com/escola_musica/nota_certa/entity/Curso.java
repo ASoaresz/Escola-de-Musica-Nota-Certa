@@ -1,7 +1,7 @@
 package com.escola_musica.nota_certa.entity;
 
 import jakarta.persistence.*;
-
+import com.escola_musica.nota_certa.entity.Instrumento;
 import java.math.BigDecimal;
 
 @Entity
@@ -15,7 +15,7 @@ public class Curso {
     @Column(nullable = false, unique = true, length = 20)
     private String codigo;
 
-    @Column(nullable = false, length = 120)
+    @Column(name = "nome_curso", nullable = false, length = 120)
     private String nome;
 
     @Enumerated(EnumType.STRING)
@@ -37,9 +37,50 @@ public class Curso {
 
     @PrePersist
     public void prePersist() {
-        this.ativo = true;
+        if (this.ativo == null) {
+            this.ativo = true;
+        }
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Instrumento getInstrumento() {
+        return instrumento;
+    }
+
+    public void setInstrumento(Instrumento instrumento) {
+        this.instrumento = instrumento;
+    }
+
+    public BigDecimal getPrecoPadrao() {
+        return precoPadrao;
+    }
+
+    public void setPrecoPadrao(BigDecimal precoPadrao) {
+        this.precoPadrao = precoPadrao;
+    }
 }
 
 
