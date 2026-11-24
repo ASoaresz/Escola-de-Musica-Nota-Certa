@@ -1,4 +1,10 @@
 $kind: http-request
-url: ""
+url: http://localhost:8080/aulas?page=0&size=500
 method: GET
+queryParams:
+  page: "0"
+  size: "500"
+body:
+  type: json
+  content: "\r\n"
 order: 3000

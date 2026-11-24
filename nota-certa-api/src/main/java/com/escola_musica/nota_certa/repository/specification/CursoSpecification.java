@@ -2,7 +2,7 @@
 package com.escola_musica.nota_certa.repository.specification;
 
 import com.escola_musica.nota_certa.entity.Curso;
-import com.escola_musica.nota_certa.entity.Instrumento;
+import com.escola_musica.nota_certa.enums.Instrumento;
 import org.springframework.data.jpa.domain.Specification;
 
 public class CursoSpecification {

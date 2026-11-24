@@ -5,6 +5,7 @@ import com.escola_musica.nota_certa.api.dto.filter.CursoFilterDTO;
 import com.escola_musica.nota_certa.api.dto.request.CursoRequestDTO;
 import com.escola_musica.nota_certa.api.dto.response.CursoResponseDTO;
 import com.escola_musica.nota_certa.api.validation.AtualizarCurso;
+import com.escola_musica.nota_certa.enums.Instrumento;
 import com.escola_musica.nota_certa.service.CursoService;
 
 import jakarta.validation.Valid;
@@ -31,7 +32,7 @@ public class CursoController {
     @GetMapping
     public Page<CursoResponseDTO> listar(
             @RequestParam(required = false) String nome,
-            @RequestParam(required = false) com.escola_musica.nota_certa.entity.Instrumento instrumento,
+            @RequestParam(required = false) Instrumento instrumento,
             @PageableDefault(size = 20) Pageable pageable
     ) {
         CursoFilterDTO filtro = new CursoFilterDTO(nome, instrumento);

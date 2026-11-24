@@ -1,7 +1,7 @@
 package com.escola_musica.nota_certa.entity;
 
 import jakarta.persistence.*;
-import com.escola_musica.nota_certa.entity.Instrumento;
+import com.escola_musica.nota_certa.enums.Instrumento;
 import java.math.BigDecimal;
 
 @Entity
@@ -25,6 +25,7 @@ public class Curso {
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal precoPadrao;
 
+    @Column(nullable = false)
     private Boolean ativo;
 
     public Boolean getAtivo() {

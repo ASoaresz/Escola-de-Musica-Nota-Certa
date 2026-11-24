@@ -27,6 +27,7 @@ public class Aluno {
     @Column(name = "data_cadastro", nullable = false)
     private LocalDateTime dataCadastro;
 
+    @Column(nullable = false)
     private Boolean ativo;
 
     public String getNome() {

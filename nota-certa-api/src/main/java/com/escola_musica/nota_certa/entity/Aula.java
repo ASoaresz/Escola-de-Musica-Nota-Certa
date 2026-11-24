@@ -1,5 +1,7 @@
 package com.escola_musica.nota_certa.entity;
 
+import com.escola_musica.nota_certa.enums.Modalidade;
+import com.escola_musica.nota_certa.enums.StatusAula;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
@@ -37,7 +39,9 @@ public class Aula {
 
     @PrePersist
     public void prePersist() {
-        this.status = StatusAula.AGENDADA;
+        if (this.status == null) {
+            this.status = StatusAula.AGENDADA;
+        }
     }
 
     public Long getId() {

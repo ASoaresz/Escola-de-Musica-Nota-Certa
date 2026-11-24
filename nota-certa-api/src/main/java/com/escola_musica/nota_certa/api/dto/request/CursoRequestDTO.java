@@ -1,10 +1,9 @@
 
 package com.escola_musica.nota_certa.api.dto.request;
 
-import com.escola_musica.nota_certa.entity.Instrumento;
+import com.escola_musica.nota_certa.enums.Instrumento;
 import com.escola_musica.nota_certa.api.validation.AtualizarCurso;
 import jakarta.validation.constraints.*;
-import jakarta.validation.groups.Default;
 
 import java.math.BigDecimal;
 

@@ -1,4 +1,4 @@
-package com.escola_musica.nota_certa.entity;
+package com.escola_musica.nota_certa.enums;
 
 public enum StatusAula {
     AGENDADA,

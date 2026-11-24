@@ -1,6 +1,6 @@
 package com.escola_musica.nota_certa.api.dto.response;
 
-import com.escola_musica.nota_certa.entity.Instrumento;
+import com.escola_musica.nota_certa.enums.Instrumento;
 
 import java.math.BigDecimal;
 

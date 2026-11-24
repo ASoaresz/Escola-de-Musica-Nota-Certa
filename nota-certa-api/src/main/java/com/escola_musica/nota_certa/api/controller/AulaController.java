@@ -1,15 +1,21 @@
 package com.escola_musica.nota_certa.api.controller;
 
+import com.escola_musica.nota_certa.api.dto.filter.AulaFilterDTO;
+import com.escola_musica.nota_certa.api.dto.request.AulaRequestDTO;
+import com.escola_musica.nota_certa.api.dto.request.StatusAulaRequestDTO;
+import com.escola_musica.nota_certa.api.dto.response.AulaResponseDTO;
+import com.escola_musica.nota_certa.enums.Modalidade;
+import com.escola_musica.nota_certa.enums.StatusAula;
 import com.escola_musica.nota_certa.service.AulaService;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import com.escola_musica.nota_certa.entity.Aula;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import jakarta.validation.Valid;
+import org.springframework.data.web.PageableDefault;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+
+import java.time.LocalDateTime;
 
 @RestController
 @RequestMapping("/aulas")
@@ -21,21 +27,43 @@ public class AulaController {
         this.aulaService = aulaService;
     }
 
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public AulaResponseDTO salvar(@Valid @RequestBody AulaRequestDTO dto) {
+        return aulaService.salvar(dto);
+    }
+
     @GetMapping
-    public Page<Aula> listarTodos(Pageable pageable) {
-        return aulaService.listarTodos(pageable);
+    public Page<AulaResponseDTO> listarComFiltros(
+            @RequestParam(required = false) StatusAula status,
+            @RequestParam(required = false) Modalidade modalidade,
+            @RequestParam(required = false) Long alunoId,
+            @RequestParam(required = false) Long cursoId,
+            @RequestParam(required = false)
+            @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+            LocalDateTime dataInicio,
+            @RequestParam(required = false)
+            @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+            LocalDateTime dataFim,
+            @PageableDefault(size = 20) Pageable pageable
+    ) {
+        AulaFilterDTO filtro = new AulaFilterDTO(
+                status, modalidade, alunoId, cursoId, dataInicio, dataFim
+        );
+
+        return aulaService.listarComFiltros(filtro, pageable);
     }
 
     @GetMapping("/{id}")
-    public Aula buscarPorId(@PathVariable Long id) {
-        return aulaService.buscarPorId(id)
-                .orElseThrow();
+    public AulaResponseDTO buscarPorId(@PathVariable Long id) {
+        return aulaService.buscarPorId(id);
     }
 
-    @PostMapping
-    public Aula salvar(@RequestBody Aula aula) {
-        return aulaService.salvar(aula);
+    @PatchMapping("/{id}/status")
+    public AulaResponseDTO atualizarStatus(
+            @PathVariable Long id,
+            @Valid @RequestBody StatusAulaRequestDTO dto
+    ) {
+        return aulaService.atualizarStatus(id, dto.status());
     }
-
-
 }
