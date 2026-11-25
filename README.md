@@ -303,13 +303,7 @@ git clone https://github.com/ASoaresz/Escola-de-Musica-Nota-Certa.git
 cd Escola-de-Musica-Nota-Certa
 ```
 
-### 3. Entrar na pasta da API
-
-``` 
-cd nota-certa-api
-```
-
-### 4. Criar o volume persistente
+### 3. Criar o volume persistente
 
 O projeto utiliza um volume Docker externo chamado
 `recursos_postgres_data`.
@@ -320,19 +314,19 @@ Criar o volume antes de iniciar os containers:
 docker volume create recursos_postgres_data
 ```
 
-### 5. Subir os containers
+### 4. Subir os containers
 
 ``` 
 docker compose up -d --build
 ```
 
-### 6. Verificar os containers
+### 5. Verificar os containers
 
 ``` 
 docker compose ps
 ```
 
-### 7. Consultar os logs da API
+### 6. Consultar os logs da API
 
 ``` 
 docker compose logs -f api
@@ -478,9 +472,9 @@ removido.
   404      Recurso não encontrado
   409      Conflito com regra de negócio
 
-## AUTOR
+## AUTORIA
 
-**Amanda Soares**
+Desenvolvido por **Amanda Soares**.
 
-Projeto desenvolvido como solução para o desafio técnico **Escola de
-Música Nota Certa**.
+- **GitHub:** [github.com/ASoaresz](https://github.com/ASoaresz)
+- **LinkedIn:** [linkedin.com/in/amanda-soares-da-silva](https://www.linkedin.com/in/amanda-soares-da-silva-83356730b/)
