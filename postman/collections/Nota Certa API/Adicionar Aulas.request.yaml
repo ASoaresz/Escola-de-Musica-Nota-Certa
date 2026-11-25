@@ -1,0 +1,27 @@
+$kind: http-request
+url: http://localhost:8080/aulas
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"aluno\": {\r
+
+    \    \"id\": 8\r
+
+    \  },\r
+
+    \  \"curso\": {\r
+
+    \    \"id\": 2\r
+
+    \  },\r
+
+    \  \"dataHora\": \"2026-11-23T14:00:00\",\r
+
+    \  \"modalidade\": \"PRESENCIAL\",\r
+
+    \  \"valor\": 120.00\r
+
+    }"
+order: 4000

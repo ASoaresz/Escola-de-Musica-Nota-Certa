@@ -1,0 +1,20 @@
+$kind: http-request
+description: ""
+url: http://localhost:8080/cursos/2
+method: PUT
+body:
+  type: json
+  content: "{\r
+
+    \    \"codigo\": \"BAO001\",\r
+
+    \    \"nome\": \"Bateria Intermediário\",\r
+
+    \    \"instrumento\": \"BATERIA\",\r
+
+    \    \"precoPadrao\": 280.00,\r
+
+    \    \"ativo\": false\r
+
+    }"
+order: 7000

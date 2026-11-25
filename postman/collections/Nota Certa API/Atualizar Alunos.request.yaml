@@ -1,0 +1,19 @@
+$kind: http-request
+url: http://localhost:8080/alunos/17
+method: PUT
+body:
+  type: json
+  content: "{\r
+
+    \  \"nome\": \"Teste1\",\r
+
+    \  \"email\": \"teste1@email.com\",\r
+
+    \  \"telefone\": \"11987254322\",\r
+
+    \  \"cidade\": \"Goiás\",\r
+
+    \  \"ativo\": false\r
+
+    }"
+order: 2373

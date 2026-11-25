@@ -1,0 +1,17 @@
+$kind: http-request
+url: http://localhost:8080/cursos
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"codigo\": \"VIO007\",\r
+
+    \    \"nome\": \"Violão Básico\",\r
+
+    \    \"instrumento\": \"VIOLAO\",\r
+
+    \    \"precoPadrao\": 189.00\r
+
+    }"
+order: 6000
