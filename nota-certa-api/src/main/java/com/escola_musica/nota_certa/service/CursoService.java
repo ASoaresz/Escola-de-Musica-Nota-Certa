@@ -23,7 +23,6 @@ public class CursoService {
         this.cursoRepository = cursoRepository;
     }
 
-    // Listar cursos com filtros e paginação
     public Page<CursoResponseDTO> listarComFiltros(
             CursoFilterDTO filtro,
             Pageable pageable
@@ -110,7 +109,6 @@ public class CursoService {
         return paraResponse(cursoAtualizado);
     }
 
-    // Converter entidade Curso em CursoResponseDTO
     private CursoResponseDTO paraResponse(Curso curso) {
         return new CursoResponseDTO(
                 curso.getId(),

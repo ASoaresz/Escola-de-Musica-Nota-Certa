@@ -28,7 +28,6 @@ public class CursoController {
         this.cursoService = cursoService;
     }
 
-    // Listar cursos com filtros e paginação
     @GetMapping
     public Page<CursoResponseDTO> listar(
             @RequestParam(required = false) String nome,
@@ -40,13 +39,11 @@ public class CursoController {
         return cursoService.listarComFiltros(filtro, pageable);
     }
 
-    // Buscar curso por ID
     @GetMapping("/{id}")
     public CursoResponseDTO buscarPorId(@PathVariable Long id) {
         return cursoService.buscarPorId(id);
     }
 
-    // Cadastrar curso
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public CursoResponseDTO salvar(
@@ -55,7 +52,6 @@ public class CursoController {
         return cursoService.salvar(dto);
     }
 
-    // Atualizar curso
     @PutMapping("/{id}")
     public CursoResponseDTO atualizar(
             @PathVariable Long id,
