@@ -1,4 +1,3 @@
-
 package com.escola_musica.nota_certa.api.controller;
 
 import com.escola_musica.nota_certa.api.dto.filter.CursoFilterDTO;

@@ -1,4 +1,3 @@
-
 package com.escola_musica.nota_certa.repository.specification;
 
 import com.escola_musica.nota_certa.entity.Curso;
